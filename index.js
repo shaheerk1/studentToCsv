@@ -8,6 +8,8 @@ const app = express()
 app.use(express.json())
 app.use(cors({ origin: '*' }))
 
+const port = process.env.PORT || 8080
+
 let csvReadings = []
 
 function loadCsv() {
@@ -65,6 +67,6 @@ app.post('/student', (req, res) => {
   loadCsv()
 })
 
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log('serve at http://localhost:8080')
 })
